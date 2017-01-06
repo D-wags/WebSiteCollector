@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+</head>
+<body>
+
+	<ul class="quotes">
+	  <% for(var i=0; i<sites.length; i++) {%>
+	    <li class="quote">
+	      <span><%= sites[i].name %></span>
+	      <span><%= sites[i].info %></span>
+	    </li>
+	  <% } %>
+	</ul>
+	
+ 	<form action="/websites" method="POST">
+	 	<input type="text" placeholder="website" name="name">
+	 	<input type="text" placeholder="info" name="info">
+	 	<button type="submit">Hit It</button>
+ 	</form>
+</body>
+</html>
+
