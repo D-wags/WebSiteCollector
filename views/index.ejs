@@ -3,23 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <title>MY APP</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
+	<h1> Websites With Cool Shiza </h1>
 
 	<ul class="quotes">
 	  <% for(var i=0; i<sites.length; i++) {%>
-	    <li class="quote">
-	      <span><%= sites[i].name %></span>
-	      <span><%= sites[i].info %></span>
+	    <li class="quote">	
+	      <a href='<%= sites[i].name %>'>
+	      	<h3><%= sites[i].info %></h3>
+	      </a>
+
+	      <form method="POST" action="/websites/<%= sites[i].name %>?_method=DELETE">
+	      	<button class="delete btn-danger" data-name='<%= sites[i].name %>'><b>X</b></button>
+	      </form>
+	   
 	    </li>
 	  <% } %>
 	</ul>
+
+	<div>
+		
+	</div>
 	
  	<form action="/websites" method="POST">
 	 	<input type="text" placeholder="website" name="name">
 	 	<input type="text" placeholder="info" name="info">
-	 	<button type="submit">Hit It</button>
+	 	<button class='btn' type="submit">Hit It</button>
  	</form>
+
 </body>
 </html>
-
