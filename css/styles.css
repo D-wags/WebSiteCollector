@@ -1,0 +1,6 @@
+.listthing, .deleto {
+    float: left;
+}
+.clearfix{
+    clear:both
+}

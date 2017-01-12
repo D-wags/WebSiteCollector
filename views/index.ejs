@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MY APP</title>
+  <title>Site Collector</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+  <!-- <link rel='stylesheet' type-'text/css' href='../css/styles.css'>
+ -->
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -13,33 +15,60 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <style media="screen" type="text/css">
+  	body {
+  		margin: 70px;
+  		background-color: #f5f5f7;
+  	}
+
+  	div {
+  		display: inline-block;
+  	}
+
+  	.deleto {
+  		margin-left: 30px;
+  	}
+
+  	/*div {
+  		float:left;
+  	}*/
+  	/*.listthing, .deleto {
+    float: left;
+	}
+	.clearfix{
+	    clear:both
+	}*/
+
+   </style>
 </head>
+
 <body>
 	<h1> Websites With Cool Shiza </h1>
 
 	<ul class="quotes">
 	  <% for(var i=0; i<sites.length; i++) {%>
 	    <li class="quote">	
-	      <a href='<%= sites[i].name %>'>
-	      	<h3><%= sites[i].info %></h3>
-	      </a>
+	    	<div>
+		      <a class="listthing" href='<%= sites[i].name %>'>
+		      	<h3><%= sites[i].info %></h3>
+		      </a>
+		    </div>
 
-	      <form method="POST" action="/websites/<%= sites[i].name %>?_method=DELETE">
-	      	<button class="delete btn-danger" data-name='<%= sites[i].name %>'><b>X</b></button>
-	      </form>
+		    <div>
+		      <form class='deleto' method="POST" action="/websites/<%= sites[i].name %>?_method=DELETE">
+		      	<button class="delete btn-danger" data-name='<%= sites[i].name %>'><b>X</b></button>
+		      </form>
+		    </div>
 	   
 	    </li>
 	  <% } %>
 	</ul>
-
-	<div>
-		
-	</div>
 	
  	<form action="/websites" method="POST">
 	 	<input type="text" placeholder="website" name="name">
 	 	<input type="text" placeholder="info" name="info">
-	 	<button class='btn' type="submit">Hit It</button>
+	 	<button class='btn-primary' type="submit">Hit It</button>
  	</form>
 
 </body>
