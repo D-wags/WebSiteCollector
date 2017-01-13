@@ -18,7 +18,7 @@ MongoClient.connect('mongodb://swagner:Hippo667!@ds157078.mlab.com:57078/infosto
   if (err) return console.log(err);
   db = database;
 
-  app.listen(process.env.NODE_ENV || 3000, function() {
+  app.listen(process.env.PORT || 3000, function() {
     console.log('Shit be listenin on 3000')
   })
 })
